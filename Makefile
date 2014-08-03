@@ -1,6 +1,21 @@
-DEVICE  = atmega324pa
-F_CPU   = 16000000
-AVRDUDE = avrdude -c usbasp -p $(DEVICE)
+ifndef KKVER
+	KKVER = 2
+endif
+
+ifeq ($(KKVER), 2)
+	DEVICE = atmega324pa
+	AVRDUDE_DEVICE = atmega324pa
+	F_CPU = 16000000
+else ifeq ($(KKVER), 2.1)
+	DEVICE = atmega644pa
+	AVRDUDE_DEVICE = m644p
+	F_CPU = 20000000
+else
+        $(error Unknown KK version supplied to KKVER)
+endif
+
+PROGRAMMER = usbasp
+AVRDUDE = avrdude -c $(PROGRAMMER) -p $(AVRDUDE_DEVICE)
 CFLAGS  = -I.
 OBJECTS = kk2.o
 COMPILE = avr-gcc -Wall -Os -DF_CPU=$(F_CPU) $(CFLAGS) -mmcu=$(DEVICE)
