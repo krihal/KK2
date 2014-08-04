@@ -29,9 +29,8 @@ int main()
 
 	st7565Refresh();
 
+#if KKVER == 21
 	Fastwire::setup(100, true);
-
-#if KKVER == KK21
 	MPU6050 mpu;
 	mpu.initialize();
 #endif
@@ -49,7 +48,7 @@ int main()
 
 		st7565ClearScreen();
 
-#if KKVER == KK21
+#if KKVER == 21
 		if(mpu.testConnection())
 		{
 			st7565DrawString(1,20, "Connected");
@@ -58,10 +57,13 @@ int main()
 		{
 			st7565DrawString(1,20, "Not connected");
 		}
-#endif
 
 		sprintf(buff, "acc_x = %d\n", mpu.getAccelerationX());
+
 		st7565DrawString(1,30, buff);
+#else
+		st7565DrawString(1,20, "No ACC available");
+#endif
 		st7565Refresh();
 
 		delay(50);

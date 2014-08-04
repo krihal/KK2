@@ -6,12 +6,12 @@ ifeq ($(KKVER), 2)
 	DEVICE = atmega324pa
 	AVRDUDE_DEVICE = atmega324pa
 	F_CPU = 16000000
-	DEVICE_DEFINE = -DKKVER=KK2
+	DEVICE_DEFINE = -DKKVER=2
 else ifeq ($(KKVER), 2.1)
 	DEVICE = atmega644pa
 	AVRDUDE_DEVICE = m644p
 	F_CPU = 20000000
-	DEVICE_DEFINE = -DKKVER=KK21
+	DEVICE_DEFINE = -DKKVER=21
 else
         $(error Unknown KK version supplied to KKVER)
 endif
