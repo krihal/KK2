@@ -38,6 +38,8 @@
 #ifndef __ST7565_H__
 #define __ST7565_H__
 
+
+#include "typedefs.h"
 #include <stdint.h>
 #include <avr/io.h>  
 
@@ -102,7 +104,7 @@ void st7565SetBrightness( uint8_t val );
 
 // Font Prototypes
 void st7565SetFont( FONT_DEF_STRUCT * font );
-void st7565DrawString(uint16_t x, uint16_t y, char* text );
+void st7565DrawString(uint16_t x, uint16_t y, const char* text );
 void st7565DrawString_P(uint16_t x, uint16_t y, char* text );
 void st7565DrawChar(uint16_t x, uint16_t y, uint8_t c );
 

@@ -46,6 +46,9 @@
 #include <util/delay.h>
 #include <avr/pgmspace.h> 
 
+#include <avr/io.h>
+#include <wiring/wiring.h>
+
 #include "st7565.h"
 #include "fonts.h"
 #include "io_cfg.h"
@@ -442,7 +445,7 @@ void st7565ClearPixel(uint8_t x, uint8_t y)
     @endcode
 */
 /**************************************************************************/
-void st7565DrawString(uint16_t x, uint16_t y, char* text)
+void st7565DrawString(uint16_t x, uint16_t y, const char* text)
 {
   uint8_t l;
   for (l = 0; l < strlen(text); l++)

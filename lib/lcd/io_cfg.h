@@ -8,10 +8,6 @@
 #define IO_CFG_H
 
 /** I N C L U D E S *************************************************/
-#include "typedefs.h"
-
-#define INPUT 0
-#define OUTPUT 1
 /*
 #define RX_ROLL    				REGISTER_BIT(PIND,3)	// INT1
 #define RX_PITCH    			REGISTER_BIT(PIND,2)	// INT0

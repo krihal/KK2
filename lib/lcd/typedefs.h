@@ -2,8 +2,6 @@
 #define TYPE_DEFS_H
 
 #include <stdint.h>
-#include <stdbool.h>
-
 
 // Code courtesy of: stu_san on AVR Freaks
 
